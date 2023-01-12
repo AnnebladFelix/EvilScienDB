@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.wrapper{
+    border: solid 4px rgb(0, 0, 0);
+    padding: 4%;
+    background-color: rgb(90, 90, 90);
+
+}
+
+article{
+    border: solid 2px black;
+    padding: 5px;
+    margin: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    background-color: #f7f7f7;
+
+
+}
+
+article > section{
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+section{
+    box-shadow: 0 0 8px 5px rgba(0, 255, 55, 0.75);
+    margin: 15px;
+}
+input{
+    width: fit-content;
+}
+
+/* 'add btn' */
+.button-85 {
+    margin: 15px;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #12d800,
+    #00ac0e,
+    #12d800,
+    #48ff00,
+    #00ffd5,
+    #00a6ff,
+    #005eff,
+    #7700ff,
+    #00ffd0
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.descBtn {
+    margin: 15px;
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .descBtn:before{
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #12d800,
+      #00ac0e,
+      #12d800,
+      #48ff00,
+      #00ffd5,
+      #00a6ff,
+      #005eff,
+      #7700ff,
+      #00ffd0
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
