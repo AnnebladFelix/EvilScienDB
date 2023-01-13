@@ -75,72 +75,65 @@
 
 // printcard();
 
-type scienists = {
-    name: string;
-    age: number | string;
-    minions: number | string;
-    desc: string;
+type scienist = {
+    name: string,
+    age: number | string,
+    henchemen: number | string,
+    description: string
 }
 
-const madScientists: scienists[] = []
+// /* SCIENTIST ARRAY */
+const evilScientists: scienist[] = []
 
-
+//_____________________________________OUTPUT DOM_______________________________________
 const addBtn = document.querySelector('button') as HTMLButtonElement;
-let sec1 = document.getElementById('lista') as HTMLElement;
-let sec2 = document.getElementById('kort') as HTMLElement;
-let par1 = document.getElementById('name-out') as HTMLParagraphElement;
-let par2 = document.getElementById('age-out') as HTMLParagraphElement;
-let par3 = document.getElementById('henche-out') as HTMLParagraphElement;
-let par4 = document.getElementById('descr-out') as HTMLParagraphElement;
+let listaEl = document.getElementById('lista') as HTMLElement;
+let kortEl = document.getElementById('kort') as HTMLElement;
+let nameOutEl = document.getElementById('name-out') as HTMLParagraphElement;
+let ageOutEl = document.getElementById('age-out') as HTMLParagraphElement;
+let hencheOutEl = document.getElementById('henche-out') as HTMLParagraphElement;
+let descrOutEl = document.getElementById('descr-out') as HTMLParagraphElement;
 
 
-// --- Print out Scientists / Shows description on far right column ---
+//________________________DISPLAYING THE WHOLE INPUT IN SECTION 'kort'________________________________________
 let printcard = function() {
-    let length =  madScientists.length;
-
+    let length =  evilScientists.length;
     for (let i = 0; i < length; i++) {
         let btn1 = document.createElement('button');
         btn1.className = "descBtn";
-        btn1.innerHTML = `${madScientists[i].name}`;
-        sec1.append(btn1);
+        btn1.innerHTML = `${evilScientists[i].name}`;
+        listaEl.append(btn1);
     }
 
-    let showBtn = document.getElementsByClassName("descBtn");
-
-    for (let n = 0; n < showBtn.length; n++){
-        showBtn[n].addEventListener("click", function(){
-            par1.innerHTML = `${madScientists[n].name}`
-            par2.innerHTML = `${madScientists[n].age}`
-            par3.innerHTML = `${madScientists[n].minions}`
-            par4.innerHTML = `${madScientists[n].desc}`
-
+    let infoBtn = document.getElementsByClassName("descBtn");
+    for (let n = 0; n < infoBtn.length; n++){
+        infoBtn[n].addEventListener("click", function(){
+            nameOutEl.innerHTML = `${evilScientists[n].name}`
+            ageOutEl.innerHTML = `${evilScientists[n].age}`
+            hencheOutEl.innerHTML = `${evilScientists[n].henchemen}`
+            descrOutEl.innerHTML = `${evilScientists[n].description}`
         })
     }
-
 }
 
-//    ---- Add Scientists ----
-
-addBtn.addEventListener("click", function(e){
-    e.preventDefault();
+// __________________________INPUT DOM________________________________
+addBtn.addEventListener("click", function(event){
+    event.preventDefault();
     
-    let sciName = document.querySelector('#name') as HTMLInputElement;
-    let sciAge = document.querySelector('#age') as HTMLInputElement;
-    let sciMinion = document.querySelector('#henche') as HTMLInputElement;
-    let sciDesc = document.querySelector('#descr') as HTMLInputElement;
-
-    let arr:scienists = {
-        name: sciName.value,
-        age: sciAge.value,
-        minions: sciMinion.value,
-        desc: sciDesc.value,
+    let nameInEl = document.querySelector('#name') as HTMLInputElement;
+    let ageInEl = document.querySelector('#age') as HTMLInputElement;
+    let hencheInEl = document.querySelector('#henche') as HTMLInputElement;
+    let descrInEl = document.querySelector('#descr') as HTMLInputElement;
+    let s:scienist = {
+        name: nameInEl.value,
+        age: ageInEl.value,
+        henchemen: hencheInEl.value,
+        description: descrInEl.value,
     }
-    madScientists.push(arr);
-    sec1.innerHTML = "";
-    const form = (document.querySelector('#formScien') as HTMLFormElement).reset(); 
-
+    evilScientists.push(s);
+    listaEl.innerHTML = "";
+    (document.querySelector('#formScien') as HTMLFormElement).reset(); 
     printcard();
 
 })
-
 printcard();
